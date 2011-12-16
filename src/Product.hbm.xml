@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.test.domain">
+    <class name="Product" table="PRODUCT" >
+        <id name="id" type="long" column="PRODUCT_ID">
+            <generator class="native"/>
+        </id>
+        <discriminator column="TYPE" type="string" />
+        <property name="name" column="NAME" />
+        
+        <many-to-one name="Booking" column="BC_ID" />
+        
+        <subclass name="Visa" discriminator-value="V">
+            <property name="issuer" column="ISSUER"/>
+        </subclass>
+        
+        <subclass name="Ticket" discriminator-value="T">
+            <property name="airport" column="AIRPORT" />
+        </subclass>
+        
+        <!-- <property name="name" column="NAME" />
+        <property name="description" column="DESC1" />
+        
+        <many-to-one name="Booking" column="BC_ID" />
+        
+        <joined-subclass name="Visa" table="VISA">
+            <key column="PRODUCT_ID" />
+            <property name="issuer" column="ISSUER"/>
+        </joined-subclass>
+        
+        <joined-subclass name="Ticket" table="Ticket">
+            <key column="PRODUCT_ID" />
+            <property name="airport" column="AIRPORT"/>
+        </joined-subclass> -->
+    </class>
+</hibernate-mapping>

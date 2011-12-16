@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="hibernate.test.domain">
+    <class name="Address" table="ADDRESS" >
+        <id name="id" column="ADDRESS_ID">
+            <generator class="native"/>
+        </id>
+        <property name="line1" column="line1" />
+    </class>
+</hibernate-mapping>

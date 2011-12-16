@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.test.domain">
+    <class name="Booking" table="Booking" >
+        <id name="id" type="long" column="BC_ID">
+            <generator class="native"/>
+        </id>
+        
+        <property name="name" column="NAME" />
+        
+        <set name="products">
+            <key column="BC_ID" />
+            <one-to-many class="Product" />
+        </set>
+    </class>
+</hibernate-mapping>
