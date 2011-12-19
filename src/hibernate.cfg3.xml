@@ -33,6 +33,8 @@
 
         <mapping resource="Person.hbm.xml"/>
         <mapping resource="Address.hbm.xml"/>
+        <mapping resource="OrchestrationTask.hbm.xml"/>
+        <mapping resource="OrchestrationProperty.hbm.xml"/>
 
     </session-factory>
 

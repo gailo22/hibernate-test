@@ -6,6 +6,8 @@ package hibernate.test;
 
 import hibernate.test.domain.Person;
 import hibernate.test.domain.Address;
+import hibernate.test.domain.OrchestrationProperty;
+import hibernate.test.domain.OrchestrationTask;
 import hibernate.test.domain.Product;
 import hibernate.test.domain.Ticket;
 import hibernate.test.domain.Visa;
@@ -25,11 +27,11 @@ public class HibernateTest {
      */
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-       session.beginTransaction();
+        session.beginTransaction();
 
         Person person = new Person();
         person.setName("Montree");
-        person.setLastName("BUngnasang");
+        person.setLastName("BUngnasang");        
         
         Set<Address> addresses = new HashSet<Address>();
         addresses.add(new Address("line1"));

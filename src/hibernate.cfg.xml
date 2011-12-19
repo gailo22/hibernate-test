@@ -31,6 +31,8 @@
         <mapping resource="Address.hbm.xml"/>
         <mapping resource="Product.hbm.xml"/>
         <mapping resource="Booking.hbm.xml"/>
+        <mapping resource="OrchestrationTask.hbm.xml"/>
+        <mapping resource="OrchestrationProperty.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
 
