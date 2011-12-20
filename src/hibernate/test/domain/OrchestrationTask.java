@@ -4,6 +4,7 @@
  */
 package hibernate.test.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,7 +17,7 @@ public class OrchestrationTask {
     private String name;
     private String description;
     
-    private Set<OrchestrationProperty> properties;
+    private Set<OrchestrationProperty> properties = new HashSet<OrchestrationProperty>();
 
     public Long getId() {
         return id;
@@ -48,6 +49,11 @@ public class OrchestrationTask {
 
     public void setProperties(Set<OrchestrationProperty> properties) {
         this.properties = properties;
+    }
+    
+    public void addProperty(OrchestrationProperty property) {
+        property.setTask(this);
+        this.properties.add(property);
     }
 
     

@@ -26,14 +26,22 @@ public class OrchestrationHibernateTest {
         OrchestrationTask task = new OrchestrationTask();
         task.setName("Task1");
         task.setDescription("Task description");
+        session.save(task);
         
-        Set<OrchestrationProperty> properties = new HashSet<OrchestrationProperty>();
+        /* 
+         * Set<OrchestrationProperty> properties = new HashSet<OrchestrationProperty>();
         properties.add(new OrchestrationProperty("doi", "delete-article"));
         properties.add(new OrchestrationProperty("prop", "delete-article-123"));
-        
         task.setProperties(properties);
+         */
         
-        session.save(task);
+        OrchestrationProperty property1 = new OrchestrationProperty("doi", "delete-article");
+        OrchestrationProperty property2 = new OrchestrationProperty("prop", "delete-article-123");
+        task.addProperty(property1);
+        task.addProperty(property2);
+        
+        session.save(property1);
+        session.save(property2);
 
         session.getTransaction().commit();
 

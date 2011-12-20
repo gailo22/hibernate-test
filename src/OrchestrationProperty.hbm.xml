@@ -10,5 +10,9 @@
         </id>
         <property name="name" column="name" />
         <property name="value" column="value" />
+        
+        <many-to-one name="task" class="OrchestrationTask" insert="true" update="false">
+            <column name="ORCHESTRATION_ID" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

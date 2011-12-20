@@ -9,12 +9,16 @@ package hibernate.test.domain;
  * @author User
  */
 public class OrchestrationProperty {
-    
+
     private Long id;
     private String name;
     private String value;
     
-    public OrchestrationProperty() {}
+    private OrchestrationTask task;
+
+    public OrchestrationProperty() {
+    }
+
     public OrchestrationProperty(String name, String value) {
         this.name = name;
         this.value = value;
@@ -44,5 +48,12 @@ public class OrchestrationProperty {
         this.value = value;
     }
 
+    public OrchestrationTask getTask() {
+        return task;
+    }
+
+    public void setTask(OrchestrationTask task) {
+        this.task = task;
+    }
     
 }

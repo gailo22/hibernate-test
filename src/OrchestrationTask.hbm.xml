@@ -11,7 +11,7 @@
         <property name="name" column="NAME" />
         <property name="description" column="DESCRIPTION" />
         
-        <set name="properties" cascade="all" inverse="false" lazy="true" fetch="join">
+        <set name="properties" cascade="all-delete-orphan" inverse="true" lazy="true" fetch="select">
             <key column="ORCHESTRATION_ID" not-null="true"/>
             <one-to-many class="OrchestrationProperty" />
         </set>
