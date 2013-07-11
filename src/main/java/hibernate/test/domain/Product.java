@@ -1,12 +1,15 @@
 package hibernate.test.domain;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -19,8 +22,8 @@ public class Product {
 	private String name;
 	private String description;
 
-	@ManyToOne
-	private Booking booking;
+	@ManyToMany(mappedBy = "products")
+	private Set<Booking> bookings = new TreeSet<Booking>();
 
 	public String getDescription() {
 		return this.description;
@@ -46,12 +49,12 @@ public class Product {
 		this.name = name;
 	}
 
-	public Booking getBooking() {
-		return this.booking;
+	public Set<Booking> getBookings() {
+		return this.bookings;
 	}
 
-	public void setBooking(final Booking booking) {
-		this.booking = booking;
+	public void setBookings(final Set<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 }

@@ -5,7 +5,9 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Booking {
@@ -15,7 +17,8 @@ public class Booking {
 	private Long id;
 	private String name;
 
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "BOOK_PROD", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "PROD_ID"))
 	private Set<Product> products;
 
 	public Long getId() {

@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,6 +19,7 @@ public class Person {
 	private String lastName;
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "person_id")
 	private Set<Address> addresses;
 
 	public Long getId() {
