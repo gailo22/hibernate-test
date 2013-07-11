@@ -1,44 +1,45 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
 import java.util.Set;
 
-/**
- *
- * @author User
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Booking {
-    
-    private Long id;
-    private String name;
-    
-    private Set<Product> products;
 
-    public Long getId() {
-        return id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String name;
 
-    public Set<Product> getProducts() {
-        return products;
-    }
+	@OneToMany
+	private Set<Product> products;
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
+	public Set<Product> getProducts() {
+		return this.products;
+	}
+
+	public void setProducts(final Set<Product> products) {
+		this.products = products;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(final String name) {
+		this.name = name;
+	}
+
 }

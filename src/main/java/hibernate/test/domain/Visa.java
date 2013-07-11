@@ -1,24 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
-/**
- *
- * @author User
- */
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("VISA")
 public class Visa extends Product {
-    
-    private String issuer;
 
-    public String getIssuer() {
-        return issuer;
-    }
+	private String issuer;
 
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
-    }
-    
-    
+	public String getIssuer() {
+		return this.issuer;
+	}
+
+	public void setIssuer(final String issuer) {
+		this.issuer = issuer;
+	}
+
+
 }

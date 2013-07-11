@@ -1,59 +1,62 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
-/**
- *
- * @author User
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class OrchestrationProperty {
 
-    private Long id;
-    private String name;
-    private String value;
-    
-    private OrchestrationTask task;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String name;
+	private String value;
 
-    public OrchestrationProperty() {
-    }
+	@ManyToOne
+	@JoinColumn(name = "TASK_ID", nullable = false)
+	private OrchestrationTask task;
 
-    public OrchestrationProperty(String name, String value) {
-        this.name = name;
-        this.value = value;
-    }
+	public OrchestrationProperty() {
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public OrchestrationProperty(final String name, final String value) {
+		this.name = name;
+		this.value = value;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    public String getValue() {
-        return value;
-    }
+	public void setName(final String name) {
+		this.name = name;
+	}
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+	public String getValue() {
+		return this.value;
+	}
 
-    public OrchestrationTask getTask() {
-        return task;
-    }
+	public void setValue(final String value) {
+		this.value = value;
+	}
 
-    public void setTask(OrchestrationTask task) {
-        this.task = task;
-    }
-    
+	public OrchestrationTask getTask() {
+		return this.task;
+	}
+
+	public void setTask(final OrchestrationTask task) {
+		this.task = task;
+	}
+
 }

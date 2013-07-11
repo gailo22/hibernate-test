@@ -1,38 +1,37 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
-/**
- *
- * @author User
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
-    
-    private Long id;
-    private String line1;
-    
-    public Address() {}
 
-    public Long getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String line1;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Address() {}
 
-    public Address(String string) {
-        line1 = string;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public String getLine1() {
-        return line1;
-    }
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
-    public void setLine1(String line1) {
-        this.line1 = line1;
-    }
-    
+	public Address(final String string) {
+		this.line1 = string;
+	}
+
+	public String getLine1() {
+		return this.line1;
+	}
+
+	public void setLine1(final String line1) {
+		this.line1 = line1;
+	}
+
 }

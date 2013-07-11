@@ -1,25 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
-/**
- *
- * @author User
- */
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("TICKET")
 public class Ticket extends Product {
-    
-    private String airport;
 
-    public String getAirport() {
-        return airport;
-    }
+	private String airport;
 
-    public void setAirport(String airport) {
-        this.airport = airport;
-    }
-    
-    
-    
+	public String getAirport() {
+		return this.airport;
+	}
+
+	public void setAirport(final String airport) {
+		this.airport = airport;
+	}
+
+
+
 }

@@ -1,50 +1,57 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package hibernate.test.domain;
 
-/**
- *
- * @author User
- */
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "product_type")
 public class Product {
-    
-    private Long id;
-    private String name;
-    private String description;
-    private Booking booking;
 
-    public String getDescription() {
-        return description;
-    }
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String name;
+	private String description;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	@ManyToOne
+	private Booking booking;
 
-    public Long getId() {
-        return id;
-    }
+	public String getDescription() {
+		return this.description;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setDescription(final String description) {
+		this.description = description;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setId(final Long id) {
+		this.id = id;
+	}
 
-    public Booking getBooking() {
-        return booking;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    public void setBooking(Booking booking) {
-        this.booking = booking;
-    }
-    
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public Booking getBooking() {
+		return this.booking;
+	}
+
+	public void setBooking(final Booking booking) {
+		this.booking = booking;
+	}
+
 }

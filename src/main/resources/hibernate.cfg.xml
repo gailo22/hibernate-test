@@ -6,9 +6,9 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/HibernateDB</property>
-        <property name="connection.username">root</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/HibernateDB</property>
+        <property name="connection.username">postgres</property>
         <property name="connection.password">password</property>
 
         <!-- JDBC connection pool (use the built-in) -->
@@ -18,7 +18,7 @@
         <property name="current_session_context_class">thread</property>
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
@@ -26,13 +26,15 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
-        <!-- Mapping files -->
-        <mapping resource="Person.hbm.xml"/>
-        <mapping resource="Address.hbm.xml"/>
-        <mapping resource="Product.hbm.xml"/>
-        <mapping resource="Booking.hbm.xml"/>
-        <mapping resource="OrchestrationTask.hbm.xml"/>
-        <mapping resource="OrchestrationProperty.hbm.xml"/>
+        <!-- Mapping classes -->
+        <mapping class="hibernate.test.domain.Person"/>
+        <mapping class="hibernate.test.domain.Address"/>
+        <mapping class="hibernate.test.domain.Product"/>
+        <mapping class="hibernate.test.domain.Booking"/>
+        <mapping class="hibernate.test.domain.Visa"/>
+        <mapping class="hibernate.test.domain.Ticket"/>
+        <mapping class="hibernate.test.domain.OrchestrationTask"/>
+        <mapping class="hibernate.test.domain.OrchestrationProperty"/>
     </session-factory>
 </hibernate-configuration>
 
